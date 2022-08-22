@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,31 +12,37 @@ class Newapp extends StatefulWidget {
 }
 
 class _NewappState extends State<Newapp> {
-  static final List<Widget>_widgetoption =<widget>[
+  int _selectedIndex=3;
+  static final List<Widget>_widgetOptions =<Widget>[
     const Text("Home"),
     const Text("Search"),
-    const Text("city"),
-    const Text("profile"),
-
+    const Text("City"),
+    const Text("Profile"),
   ];
+
+  void _onItemTapped(int index){
+    _selectedIndex=index;
+    print('${_selectedIndex}');
+    print(_selectedIndex.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My first App"),
+        title: const Text("My first App"),
       ),
       body: Center(
-        child: Text(
-          "My App"
-        ),
+        child: _widgetOptions[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
         elevation: 10,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
         unselectedItemColor: const Color(0xFF526480),
-        items: [
+        items: const [
         BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
             label: "Home"),
