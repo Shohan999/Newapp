@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Firstapp/Newapp.dart';
+import 'package:untitled1/screens/bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const Newapp(),
+      home: const BottomBar(),
     );
   }
 }
